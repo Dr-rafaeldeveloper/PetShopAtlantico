@@ -11,10 +11,10 @@ namespace PetShopAtlantico.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PetAlojController : ControllerBase
+    public class PetAlojsController : ControllerBase
     {
         private readonly DataContext _context;
-        public PetAlojController(DataContext context)
+        public PetAlojsController(DataContext context)
         {
             this._context = context;
         }
