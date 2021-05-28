@@ -1,7 +1,65 @@
+<h2>Alojamentos</h2>
+<hr>
 
-
-<div *ngFor="let petaloj of petalojs">
-  <p><b>AnimalName:</b>{{petaloj.animalName}}</p>
-  <p><b>OwnwerName:</b>{{petaloj.ownerName}}</p>
-  <hr>
+<div class="form-inline">
+  <div class="form-group mb-2">
+    <label class="mr-2">Filtro: </label>
+    <input
+    type="text"
+    class="form-control mr-2"
+    placeholder="buscar"
+    [(ngModel)]="listFilter"
+    >
+  </div>
 </div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>
+        <button
+        type="button" class="btn btn-outline-light btn-sm"
+        (click)="changeImg()">
+        {{!showImg ? 'exibir' : 'ocultar'}}
+        </button>
+      </th>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Proprietário</th>
+      <th>Telefone</th>
+      <th>Endereço</th>
+      <th>Motivo</th>
+      <th>Estado</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="petalojs && petalojs.length">
+    <tr *ngFor="let petaloj of petalojsFilters">
+      <td>
+        <img [collapse]="!showImg"
+        [isAnimated]="true"
+        src="/assets/{{petaloj.photo}}"
+        [style.width.px]="widthImg"
+        [style.margin.px]="marginImg"
+        >
+      </td>
+      <td>{{petaloj.petAlojId}}</td>
+      <td>{{petaloj.animalName}}</td>
+      <td>{{petaloj.ownerName}}</td>
+      <td>{{petaloj.telephone}}</td>
+      <td>{{petaloj.address}}</td>
+      <td>{{petaloj.reason}}</td>
+      <td>{{petaloj.state}}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!petalojs.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum alojamento ocupado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
