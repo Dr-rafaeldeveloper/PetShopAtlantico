@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PetShopAtlantico.Domain\PetShopAtlantico.Domain.csproj" />
+    <ProjectReference Include="..\PetShopAtlantico.Persistence\PetShopAtlantico.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
